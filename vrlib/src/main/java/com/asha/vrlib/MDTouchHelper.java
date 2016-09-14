@@ -44,7 +44,8 @@ public class MDTouchHelper {
 
             @Override
             public boolean onScroll(MotionEvent e1, MotionEvent e2, float distanceX, float distanceY) {
-                if (mCurrentMode == MODE_PINCH) return false;
+                if (mCurrentMode == MODE_PINCH)
+                    mAdvanceGestureListener.onDrag(distanceX / mGlobalScale, distanceY / mGlobalScale);
 
                 if (mAdvanceGestureListener != null)
                     mAdvanceGestureListener.onDrag(distanceX / mGlobalScale, distanceY / mGlobalScale);
